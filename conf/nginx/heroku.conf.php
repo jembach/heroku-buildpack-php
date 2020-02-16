@@ -68,6 +68,7 @@ http {
 		# default handling of .php
 		location ~ \.php {
 			try_files @heroku-fcgi @heroku-fcgi;
+			fastcgi_read_timeout <?=getenv('PORT')?:'300s'?>;
 		}
 	}
 }
